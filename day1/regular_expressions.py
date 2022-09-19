@@ -30,10 +30,10 @@ def get_match_object():
 
 def character_classes():
     print(string)
-    regex = r"."
+    regex = r"."  # Match any single character
     result = re.search(regex, string)  # . matches any except \n
     print(f"{regex:<30}: {result.group()}")
-    regex = r"\w"
+    regex = r"\w"  # All writable characters
     result = re.search(regex, string)  # \w matches any unicode character
     print(f"{regex:<30}: {result.group()}")
     regex = r"\d"
@@ -56,11 +56,11 @@ def character_classes():
 
 def positional_anchors():
     print(string, len(string))
-    # ^ - match to the beginning of the string
+    # ^ - match to the beginning of the string (that is numeric)
     regex = r"^\d"
     result = re.search(regex, string)
     print(f"{regex:<30}: {result}")
-    # $ - match to the end of the string
+    # $ - match to the end of the string (find non-writable charaters)
     regex = r"\W$"
     result = re.search(regex, string)
     print(f"{regex:<30}: {result.group()}")
@@ -158,14 +158,19 @@ def control_flags():
     print(f"{regex:<30}: {result.group()}")
 
 
+def Trial_classes():
+    print(string)
+    regre
+
+
 def main():
-    get_match_object()
-    character_classes()
-    positional_anchors()
+    #get_match_object()
+    #character_classes()
+    #positional_anchors()
     quantifiers()
-    custom_classes_and_escaping_sequences()
-    grouping_and_capturing_regexes()
-    control_flags()
+    #custom_classes_and_escaping_sequences()
+    #grouping_and_capturing_regexes()
+    #control_flags()
     return 0
 
 

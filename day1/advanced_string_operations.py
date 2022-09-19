@@ -1,3 +1,4 @@
+import math
 import random
 import shutil
 import sys
@@ -11,6 +12,8 @@ def print_5s():
     sssss_bytes = sssss.encode('utf-8')
     print(f"{len(sssss_bytes) = }")
     print(f"{sssss_bytes = }")
+    print(f"{my_name = }")
+    print(f"{my_name.encode('utf-8') = }")
 
 
 def working_with_bytes():
@@ -19,6 +22,7 @@ def working_with_bytes():
     print(f"{len(b_empty) = }")
     b_random = bytes(random.choices(range(256), k=10))
     print(f"{b_random = }")
+    print(f"{ord(b'G') = }")
     b_chars = b'the moon is shining so bright'
     print(f"{b_chars = }")
     # not all byte sequences are encodeable
@@ -57,7 +61,7 @@ def string_search(word, replace_with='fishcake'):
     print(f"{sentence.replace(word, replace_with)}")
 
 
-def string_is_properties(string):
+def string_is_properties(string: str):
     # isalnum, isalpha, isprintable, isspace
     print(f"{string.isalnum() = }")
     print(f"{string.isalpha() = }")
@@ -158,18 +162,52 @@ def string_format_minilanguage():
 {signature:<{width}}
 """)
 
+#### find space between points
+def break_strings():
+    # Assign string variable
+    Stringy  = "violet_blue|convert|red|6.3327|9.4423|113.3428|7.3298|5.3353|9.9283|over|all"
+
+    # Split string
+    split_stringy = Stringy.split('|')
+    print(f"{split_stringy  = }")
+
+    # convert string to float
+
+# convert string to float
+#a = float(split_stringy[3])
+#b = float(split_stringy[4])
+#c = float(split_stringy[5])
+#d = float(split_stringy[6])
+#e = float(split_stringy[7])
+#f = float(split_stringy[8])
+#print(a,b,c,d,e,f)
+
+    # Convert to float using map
+    points = list(map(float, split_stringy[3:9]))
+    print(points)
+
+    # Unpack points
+    a1, b1, c1, a2, b2, c2 = points
+
+    # Find the distances
+    distancey = math.sqrt(((a1-a2)**2)+((b1-b2)**2)+((c1-c2)**2))
+    print(distancey)
+
+
 
 def main():
     # print_5s()
-    # working_with_bytes()
+    #working_with_bytes()
     # print_triple_quoted()
     # string_search('who')
     # string_is_properties(input())
     # slicing_and_dicing_strings(input())
-    # string_method_formatting(input())
+    string_method_formatting(input())
     # string_format_minilanguage()
+    # break_strings()
     return 0
 
 
 if __name__ == '__main__':
     sys.exit(main())
+

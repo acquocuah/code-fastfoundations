@@ -24,7 +24,7 @@ def using_filter():
     """Filter out words that are in the wrong case"""
     words = ["shock", "brink", "limited", "admission", "demonstration", "alive", "pen", "reactor", "ban", "sentence", ]
     print(f"{words = }")
-    print(f"{filter(lambda w: len(w) > 7, words) = }")
+    print(f"{list(filter(lambda w: len(w) > 7, words))= }")
 
 
 def main():
