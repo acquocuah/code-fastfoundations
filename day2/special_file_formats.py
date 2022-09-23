@@ -78,9 +78,9 @@ def compressing_binary_data():
 
 def main():
     # working_with_gzip_files()
-    # read_json_file()
-    working_with_binary_data()
-    compressing_binary_data()
+    read_json_file()
+    # working_with_binary_data()
+    # compressing_binary_data()
     return 0
 
 

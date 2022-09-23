@@ -9,22 +9,46 @@ class Circle:
     def __init__(self, radius, position=(0, 0)):
         self.radius = radius  # each circle will have a particular radius
         self.position = position
+        self.diameter = radius*2
+        # self.area = math.pi * radius**2
 
     def __str__(self):  # Python special methods
-        return f"I am a circle of size {self.radius}{self.units} located at {self.position}."
+        return f"I am a circle of size {self.radius}{self.units} and {self.diameter}{self.units} located at {self.position} for circle of area {self.area}."
 
+    def area(self):
+        return math.pi * self.radius ** 2
 
-def area(circle):
-    return math.pi * circle.radius ** 2
+    def perimeter(self):
+        return math.pi * 2 * self.radius
 
+    def arc_length(self, angle, degrees=False):
+        return (math.pi * self.radius * 2) * (angle / 360)
 
-def arc_length(circle, angle, degrees=False):
-    """Function to compute the arc length l for the angle provided"""
+    def bounding_box(self):
+        """Function to compute the four values of the bounding box for a circle"""
+        # xmin, xmax, ymin, ymax
+        return self.position[0] - self.radius
+        return self.position[0] + self.radius
+        return self.position[0] - self.radius
+        return self.position[0] + self.radius
 
+# def area(circle):
+#     return math.pi * circle.radius ** 2
+#
+# def perimeter(circle):
+#     return math.pi * 2 * circle.radius
+#
+# def arc_length(circle, angle, degrees=False):
+#     return (math.pi * circle.radius * 2) * (angle / 360)
+#
 
-def bounding_box(circle):
-    """Function to compute the four values of the bounding box for a circle"""
-
+# def bounding_box(circle):
+#     """Function to compute the four values of the bounding box for a circle"""
+#     xmin, xmax, ymin, ymax
+    # return circle.position[0]-circle.radius
+    # return circle.position[0]+circle.radius
+    # return circle.position[0]-circle.radius
+    # return circle.position[0]+circle.radius
 
 def main():
     small_circle = Circle(10)
@@ -45,9 +69,11 @@ def main():
     print(small_circle)
     print(big_circle)
 
-    canvas = Canvas(1200, 780)
-    canvas.mystery_method()
-    turtle.done()
+    print(small_circle.area())
+
+  #  canvas = Canvas(1200, 780)
+   # canvas.mystery_method()
+    #turtle.done()
 
     return os.EX_OK
 

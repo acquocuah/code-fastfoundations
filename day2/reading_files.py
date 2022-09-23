@@ -29,7 +29,10 @@ def reading_file_contents():
         # list of all lines
         print(f"{ f.readlines() = }")
 
-
+def iterating_over_file_contents():
+    with open("think_different.txt") as f:
+        for row in f:
+            print(row)
 def navigating_files():
     with open("butterfly.txt") as f:
         # first let's read everything
@@ -71,13 +74,13 @@ def testing_paths():
     print(f"{my_path.is_dir() = }")
     print(f"{my_path.is_file() = }")
     print(f"{my_path.is_absolute() = }")
-    print(f"{my_path.is_relative_to('/Users/paulkorir/') = }")
+    print(f"{my_path.is_relative_to('/Users/acquocuah/') = }")
     print(f"{my_path.is_relative_to('.') = }")
 
 
 def useful_path_operations():
     import pathlib
-    my_path = pathlib.Path("/Users/paulkorir/PycharmProjects/code-fastfoundations/day2/dir1/dir3/dir4/einstein.txt")
+    my_path = pathlib.Path("/Users/acquocuah/PycharmProjects/code-fastfoundations/day2/dir1/dir3/dir4/einstein.txt")
     with my_path.open() as f:
         print(f.read())
     my_path = pathlib.Path("~/PycharmProjects/code-fastfoundations/day2/dir1/dir3/dir4/einstein.txt")  # ~ = user dir
@@ -85,7 +88,7 @@ def useful_path_operations():
     #     print(f.read())
     with my_path.expanduser().open() as f:  # need to expand user first
         print(f.read())
-    my_path = pathlib.Path("/Users/paulkorir/PycharmProjects/code-fastfoundations/day2")
+    my_path = pathlib.Path("/Users/acquocuah/PycharmProjects/code-fastfoundations/day2")
     print(f"{my_path.glob('*') = }")  # globbing; just like on the bash terminal
     print(f"{'GLOBBING'}")
     for path_object in my_path.glob('*'):
@@ -97,6 +100,28 @@ def useful_path_operations():
     for path_object in my_path.rglob('**/*'):  # recursive globbing
         print(f"\t* {path_object.name:<30} ==> {path_object.parent}")
 
+def reading_wagata():
+    with open("wagata.txt", encoding='utf-32') as f:
+        print(f.read())
+
+
+def print_number_of_rows(filename, lines10):
+    with open(filename) as f:
+        #slicing
+        lines_read = f.readlines()[:lines]
+
+def reading_socrates():
+    import pathlib
+    my_path = pathlib.Path("dir1/dir2/socrates.txt")
+    print(f.read)
+
+def hidden_socrates():
+    import pathlib
+    my_path = pathlib.Path("~/")
+    print(f"{my_path = }")
+    print(f"{my_path.glob('.*') = }")
+    for my_path.glob(".*"):
+
 
 def main():
     # opening_and_closing_files()
@@ -105,7 +130,7 @@ def main():
     # navigating_files()
     # working_with_paths()
     # testing_paths()
-    useful_path_operations()
+    # useful_path_operations()
     return 0
 
 

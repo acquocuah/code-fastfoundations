@@ -6,7 +6,12 @@ def plain_while():
     while i < 10:
         print(f"{i = }")
         i += 1
+def reverse_while():
+    i = 9
+    while i > 1:  # i != 0
+    print(f"{i = }")
 
+def funny_sum
 
 def complex_while():
     from my_functions import calculate_geometric_series
